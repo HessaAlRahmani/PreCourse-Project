@@ -72,16 +72,9 @@ function characterCount(string, c) {
 function largestIncrement(numbers) {
   // Your code here
   let largest = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    for (let j = 1; j < numbers.length; j++) {
-      if (numbers[i] > numbers[j]) {
-        if (numbers[i] - numbers[j] >= largest)
-          largest = numbers[i] - numbers[j];
-      } else {
-        if (numbers[j] - numbers[i] >= largest)
-          largest = numbers[j] - numbers[i];
-      }
-    }
+  for (let i = 0; i <= numbers.length; i++) {
+    if (largest <= numbers[i + 1] - numbers[i])
+      largest = numbers[i + 1] - numbers[i];
   }
   return largest;
 }
@@ -117,6 +110,10 @@ function afterX(numbers, x) {
  */
 function abbreviate(firstName, lastName) {
   // Your code here
+  let firstArr = firstName.split("");
+  let lastArr = lastName.split("");
+  let abbv = firstArr[0] + lastArr[0];
+  return abbv.toUpperCase();
 }
 // console.log(abbreviate("miss", "Stephane"));
 
@@ -132,8 +129,7 @@ function abbreviate(firstName, lastName) {
  */
 function isUpperCase(string) {
   // Your code here
-  let stringArray = string.split("");
-  stringArray.forEach((element) => {});
+  return string === string.toUpperCase();
 }
 
 // console.log(isUpperCase("JCREW"));
